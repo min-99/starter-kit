@@ -1,0 +1,199 @@
+.layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-xl);
+  align-items: start;
+}
+
+/* 폼 */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+  background-color: var(--color-bg-primary);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-xl);
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+.label {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-primary);
+}
+
+.required {
+  color: var(--color-danger);
+}
+
+.input,
+.select {
+  height: 40px;
+  padding: 0 var(--spacing-md);
+  font-size: var(--font-size-md);
+  color: var(--color-text-primary);
+  background-color: var(--color-bg-primary);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  transition:
+    border-color var(--transition-fast),
+    box-shadow var(--transition-fast);
+  outline: none;
+  width: 100%;
+}
+
+.input::placeholder {
+  color: var(--color-text-disabled);
+}
+
+.input:focus,
+.select:focus {
+  border-color: var(--color-border-focus);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+}
+
+.inputError {
+  border-color: var(--color-danger);
+}
+
+.inputError:focus {
+  border-color: var(--color-danger);
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.15);
+}
+
+.error {
+  font-size: var(--font-size-xs);
+  color: var(--color-danger);
+}
+
+/* 비밀번호 강도 */
+.strengthBar {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  margin-top: 2px;
+}
+
+.strengthFill {
+  flex: 1;
+  height: 4px;
+  border-radius: var(--radius-full);
+  transition: background-color var(--transition-normal);
+}
+
+.weak {
+  background-color: var(--color-danger);
+  width: 33%;
+}
+
+.medium {
+  background-color: var(--color-warning);
+  width: 66%;
+}
+
+.strong {
+  background-color: var(--color-success);
+  width: 100%;
+}
+
+.strengthLabel {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-secondary);
+  width: 28px;
+  flex-shrink: 0;
+}
+
+/* 체크박스 */
+.checkboxField {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.checkbox {
+  width: 16px;
+  height: 16px;
+  accent-color: var(--color-primary);
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.checkboxLabel {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-primary);
+  cursor: pointer;
+}
+
+.checkboxError {
+  width: 100%;
+  margin-left: 24px;
+}
+
+/* 제출 버튼 */
+.submitBtn {
+  margin-top: var(--spacing-sm);
+  height: 44px;
+  background-color: var(--color-primary);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-semibold);
+  cursor: pointer;
+  transition: background-color var(--transition-fast);
+}
+
+.submitBtn:hover {
+  background-color: var(--color-primary-hover);
+}
+
+/* 결과 패널 */
+.result {
+  background-color: var(--color-bg-primary);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-xl);
+  position: sticky;
+  top: calc(var(--header-height) + var(--spacing-lg));
+}
+
+.resultTitle {
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
+  margin-bottom: var(--spacing-md);
+}
+
+.resultJson {
+  font-family: monospace;
+  font-size: var(--font-size-sm);
+  color: var(--color-success);
+  background-color: #0d1117;
+  padding: var(--spacing-md);
+  border-radius: var(--radius-md);
+  overflow: auto;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+.resultPlaceholder {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-disabled);
+}
+
+@media (max-width: 768px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+
+  .result {
+    position: static;
+  }
+}
